@@ -1,0 +1,32 @@
+﻿@{
+    Layout = null;
+	
+	@model List<CarSales.Data.Models.CarListModel>
+
+	// and property Model is type of List<MyObject>
+
+
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>List</title>
+</head>
+<body>
+    <div>
+		<table>
+			@foreach (var item in Model)
+			{
+				<tr>
+					<td>@item.Make</td>
+					<td>@item.Model</td>
+					<td>@Html.ActionLink("View", "View", new { carID = item.CarID })</td>
+				</tr>
+			}
+		</table>
+    </div>
+</body>
+</html>

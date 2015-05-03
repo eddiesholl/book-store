@@ -13,7 +13,11 @@ namespace CarSales.Logic.Services
 	{
 		static List<Car> _privateCars = new List<Car>();
 		static List<Car> _dealerCars = new List<Car>();
+		private IEnumerable<Car> AllCars { get { return _privateCars.Union(_dealerCars).OrderBy(c => c.Make); } }
 
+		/// <summary>
+		/// Auto populate some static sample data for cars
+		/// </summary>
 		static CarService()
 		{
 			var fixture = new Fixture();
@@ -24,16 +28,20 @@ namespace CarSales.Logic.Services
 			fixture.Register<Price>(() => SampleDataGenerator.GetRandomPrice());
 			fixture.Register<int>(() => SampleDataGenerator.GetRandomYear());
 
-			fixture.Register<ContactDetails>(() => (ContactDetails)fixture.Create<PrivateContactDetails>());
 			fixture.AddManyTo(_privateCars, 10);
+			_privateCars.ForEach(c =>
+				{
+					c.MakePrivateListing();
+				});
 
-			fixture.Register<ContactDetails>(() => (ContactDetails)fixture.Create<DealerContactDetails>());
 			fixture.AddManyTo(_dealerCars, 10);
+			_dealerCars.ForEach(c =>
+				{
+					c.MakeDealerListing();
+				});
 		}
 
-		private IEnumerable<Car> AllCars { get { return _privateCars.Union(_dealerCars).OrderBy(c => c.Make); } }
-
-
+		#region ICarService
 		public IEnumerable<CarListModel> GetAllCars()
 		{
 			return AllCars.Select(c => ConvertCarToListModel(c));
@@ -52,8 +60,9 @@ namespace CarSales.Logic.Services
 
 			return result;
 		}
+		#endregion
 
-		public CarListModel ConvertCarToListModel(Car car)
+		private CarListModel ConvertCarToListModel(Car car)
 		{
 			var result = new CarListModel
 			{
@@ -68,7 +77,7 @@ namespace CarSales.Logic.Services
 			return result;
 		}
 
-		public CarViewModel ConvertCarToViewModel(Car car)
+		private CarViewModel ConvertCarToViewModel(Car car)
 		{
 			var result = new CarViewModel
 			{
@@ -79,7 +88,11 @@ namespace CarSales.Logic.Services
 				Email = car.Email,
 				PriceAmount = car.Price.PriceAmount,
 				PriceType = car.Price.PriceType,
-				Year = car.Year
+				Year = car.Year,
+				ListingType = car.ListingType,
+				ContactName = car.ContactName,
+				Phone = car.Phone,
+				ABN = car.ABN
 			};
 
 			return result;

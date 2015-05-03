@@ -13,6 +13,9 @@ namespace CarSales.Data.Domain
 		EGC
 	}
 
+	/// <summary>
+	/// Wrapper class for modelling the different pricing models available on a car
+	/// </summary>
 	public class Price
 	{
 		public PriceType PriceType { get; private set; }

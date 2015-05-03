@@ -11,9 +11,11 @@ namespace CarSales.Presentation.Controllers
 	public class CarsController : Controller
 	{
 		ICarService _carService;
-		public CarsController(ICarService carService)
+		IEnquiryService _enquiryService;
+		public CarsController(ICarService carService, IEnquiryService enquiryService)
 		{
 			_carService = carService;
+			_enquiryService = enquiryService;
 		}
 
 		public ActionResult List()
@@ -24,9 +26,9 @@ namespace CarSales.Presentation.Controllers
 		}
 
 		[HttpGet]
-		public ActionResult Detail(int id)
+		public ActionResult Detail(int carID)
 		{
-			var matchedCar = _carService.GetCar(id);
+			var matchedCar = _carService.GetCar(carID);
 
 			return View(matchedCar);
 		}
@@ -37,6 +39,9 @@ namespace CarSales.Presentation.Controllers
 		{
 			if (ModelState.IsValid)
 			{
+				// Save the enquiry details to persistence etc
+				_enquiryService.RecordEnquiry(postData.EnquireName, postData.EnquireEmail, postData.CarID);
+
 				return RedirectToAction("Enquire", new { carID = postData.CarID });
 			}
 			else

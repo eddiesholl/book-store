@@ -13,6 +13,7 @@ namespace CarSales.Data.Domain
 
 		static SampleDataGenerator()
 		{
+			// REVISIT Hook up sample data generation so it pulls in real names from here
 			_sampleModels = new List<Tuple<string, string>>()
 			{
 				Tuple.Create( "Hyundai", "i20"),

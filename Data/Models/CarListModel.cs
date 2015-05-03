@@ -15,7 +15,6 @@ namespace CarSales.Data.Models
 		public int Year { get; set; }
 		public Price Price { get; set; }
 		public string Email { get; set; }
-		//public ContactDetails ContactDetails { get; private set; }
 		public string Comments { get; set; }
 	}
 }

@@ -20,7 +20,12 @@ namespace CarSales.Data.Models
 		public decimal? PriceAmount { get; set; }
 		public PriceType PriceType { get; set; }
 		public string Email { get; set; }
-		//public ContactDetails ContactDetails { get; private set; }
+
+		public ListingType ListingType { get; set; }
+		public string ContactName { get; set; }
+		public string Phone { get; set; }
+		public string ABN { get; set; }
+
 		public string Comments { get; set; }
 
 		[Required(ErrorMessage="Please include your name.",AllowEmptyStrings=false)]

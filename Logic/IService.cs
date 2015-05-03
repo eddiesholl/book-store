@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace CarSales.Logic.Services
 {
+	/// <summary>
+	/// Marker interface useful for auto registration of services etc
+	/// </summary>
 	public interface IService
 	{
 	}

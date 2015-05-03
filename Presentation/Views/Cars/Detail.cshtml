@@ -22,6 +22,20 @@
 		@DisplayProperty(@Html.Label("Price"), @GetDisplayPrice(@Model.PriceType, @Model.PriceAmount))
 		@DisplayProperty(@Html.LabelFor(m => m.Year), @Html.DisplayFor(m => m.Year))
 		@DisplayProperty(@Html.LabelFor(m => m.Comments), @Html.DisplayFor(m => m.Comments))
+		@DisplayProperty(@Html.LabelFor(m => m.Email), @Html.DisplayFor(m => m.Email))
+
+		@DisplayProperty(@Html.LabelFor(m => m.ListingType), @Html.DisplayFor(m => m.ListingType))
+		@if (@Model.ListingType == CarSales.Data.Domain.ListingType.Dealer)
+		{
+			@DisplayProperty(@Html.LabelFor(m => m.ABN), @Html.DisplayFor(m => m.ABN))
+
+		}
+  else
+  {
+	@DisplayProperty(@Html.LabelFor(m => m.ContactName), @Html.DisplayFor(m => m.ContactName))
+	@DisplayProperty(@Html.LabelFor(m => m.Phone), @Html.DisplayFor(m => m.Phone))
+
+  }
 
 	</table>
 
@@ -36,7 +50,11 @@
 		@Html.HiddenFor(m => m.PriceType)
 		@Html.HiddenFor(m => m.Year)
 		@Html.HiddenFor(m => m.Email)
-		@Html.HiddenFor(m => m.Comments)
+	@Html.HiddenFor(m => m.Comments)
+	@Html.HiddenFor(m => m.ListingType)
+	@Html.HiddenFor(m => m.ContactName)
+	@Html.HiddenFor(m => m.Phone)
+		@Html.HiddenFor(m => m.ABN)
 		
 		@Html.Label("Yes I would like to buy this car!")
 			

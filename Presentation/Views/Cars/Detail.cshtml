@@ -1,0 +1,90 @@
+﻿@{
+	Layout = "~/Views/Shared/_Layout.cshtml";
+	@model CarSales.Data.Models.CarViewModel
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>View</title>
+</head>
+<body>
+
+	@* @@Html.DisplayForModel() *@
+
+	<table>
+		
+		@DisplayProperty(@Html.LabelFor(m => m.Make), @Html.DisplayFor(m => m.Make))
+		@DisplayProperty(@Html.LabelFor(m => m.Model), @Html.DisplayFor(m => m.Model))
+
+		@DisplayProperty(@Html.Label("Price"), @GetDisplayPrice(@Model.PriceType, @Model.PriceAmount))
+		@DisplayProperty(@Html.LabelFor(m => m.Year), @Html.DisplayFor(m => m.Year))
+		@DisplayProperty(@Html.LabelFor(m => m.Comments), @Html.DisplayFor(m => m.Comments))
+
+	</table>
+
+	<br/><br/>
+
+	@using (Html.BeginForm("Detail", "Cars", FormMethod.Post))
+	{
+		@Html.HiddenFor(m => m.CarID)
+		@Html.HiddenFor(m => m.Make)
+		@Html.HiddenFor(m => m.Model)
+		@Html.HiddenFor(m => m.PriceAmount)
+		@Html.HiddenFor(m => m.PriceType)
+		@Html.HiddenFor(m => m.Year)
+		@Html.HiddenFor(m => m.Email)
+		@Html.HiddenFor(m => m.Comments)
+		
+		@Html.Label("Yes I would like to buy this car!")
+			
+		@Html.ValidationSummary()
+		 
+		<table>
+		 	@DisplayProperty(@Html.DisplayNameFor(m => m.EnquireName), @Html.EditorFor(m => m.EnquireName))
+		 	@DisplayProperty(@Html.DisplayNameFor(m => m.EnquireEmail), @Html.EditorFor(m => m.EnquireEmail))
+		</table>
+
+	<input type="submit" />
+	}
+	
+	
+
+</body>
+</html>
+
+@helper DisplayProperty(MvcHtmlString label, MvcHtmlString value)
+{
+	<tr>
+		<td>@label</td>
+		<td>@value</td>
+
+	</tr>
+}
+
+@functions
+{
+	MvcHtmlString GetDisplayPrice(CarSales.Data.Domain.PriceType priceType, decimal? amount)
+	{
+		string result = string.Empty;
+
+
+		switch (priceType)
+		{
+			case CarSales.Data.Domain.PriceType.DAP:
+				result = string.Format("${0} (Drive away price)", amount);
+				break;
+			case CarSales.Data.Domain.PriceType.EGC:
+				result = string.Format("${0} (Excluding government charges)", amount);
+				break;
+			case CarSales.Data.Domain.PriceType.POA:
+				result = "Price available on request";
+				break;
+		}
+
+
+		return new MvcHtmlString(result);
+	}
+}

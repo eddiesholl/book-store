@@ -310,7 +310,8 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Web.config" />
     <Content Include="Views\Cars\List.cshtml" />
-    <Content Include="Views\Cars\View.cshtml" />
+    <Content Include="Views\Cars\Detail.cshtml" />
+    <Content Include="Views\Cars\Enquire.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

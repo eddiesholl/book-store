@@ -21,6 +21,9 @@ namespace CarSales.Logic.Services
 				new StringGenerator(() =>
 					Guid.NewGuid().ToString().Substring(0, 10)));
 
+			fixture.Register<Price>(() => SampleDataGenerator.GetRandomPrice());
+			fixture.Register<int>(() => SampleDataGenerator.GetRandomYear());
+
 			fixture.Register<ContactDetails>(() => (ContactDetails)fixture.Create<PrivateContactDetails>());
 			fixture.AddManyTo(_privateCars, 10);
 
@@ -56,9 +59,12 @@ namespace CarSales.Logic.Services
 			{
 				CarID = car.CarID,
 				Make = car.Make,
-				Model = car.Model
+				Model = car.Model,
+				Comments = car.Comments,
+				Email = car.Email,
+				Price = car.Price,
+				Year = car.Year
 			};
-
 			return result;
 		}
 
@@ -68,7 +74,12 @@ namespace CarSales.Logic.Services
 			{
 				CarID = car.CarID,
 				Make = car.Make,
-				Model = car.Model
+				Model = car.Model,
+				Comments = car.Comments,
+				Email = car.Email,
+				PriceAmount = car.Price.PriceAmount,
+				PriceType = car.Price.PriceType,
+				Year = car.Year
 			};
 
 			return result;

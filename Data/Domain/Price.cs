@@ -18,7 +18,13 @@ namespace CarSales.Data.Domain
 		public PriceType PriceType { get; private set; }
 		public decimal? PriceAmount { get; private set; }
 
-		public Price(PriceType priceType, decimal? price = null)
+		public Price()
+		{
+			PriceType = Domain.PriceType.POA;
+			PriceAmount = null;
+		}
+
+		public Price(PriceType priceType = Domain.PriceType.POA, decimal? price = null)
 		{
 			PriceType = priceType;
 			PriceAmount = price;

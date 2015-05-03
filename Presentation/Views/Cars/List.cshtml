@@ -1,11 +1,6 @@
 ﻿@{
-    Layout = null;
-	
+	Layout = "~/Views/Shared/_Layout.cshtml";	
 	@model List<CarSales.Data.Models.CarListModel>
-
-	// and property Model is type of List<MyObject>
-
-
 }
 
 <!DOCTYPE html>
@@ -18,12 +13,14 @@
 <body>
     <div>
 		<table>
+			<tr><td>Make</td><td>Model</td><td>Price</td></tr>
 			@foreach (var item in Model)
 			{
 				<tr>
 					<td>@item.Make</td>
 					<td>@item.Model</td>
-					<td>@Html.ActionLink("View", "View", new { carID = item.CarID })</td>
+					<td>@item.Price.PriceAmount</td>
+					<td>@Html.ActionLink("View", "Detail", new { id = item.CarID })</td>
 				</tr>
 			}
 		</table>

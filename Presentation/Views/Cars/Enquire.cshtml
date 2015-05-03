@@ -1,0 +1,21 @@
+﻿@model CarSales.Data.Models.CarViewModel
+
+@{
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Enquire</title>
+</head>
+<body>
+    <div>
+        Thank you for your enquiry about the @Html.ActionLink(@Model.Make + " " + @Model.Model, "Detail", new { carID = @Model.CarID }).
+	
+		The seller will be sending you an email shortly.
+    </div>
+</body>
+</html>

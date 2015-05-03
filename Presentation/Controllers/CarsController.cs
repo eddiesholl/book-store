@@ -1,4 +1,5 @@
-﻿using CarSales.Logic.Services;
+﻿using CarSales.Data.Models;
+using CarSales.Logic.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,7 +23,29 @@ namespace CarSales.Presentation.Controllers
 			return View(allCars);
 		}
 
-		public ActionResult View(int carID)
+		[HttpGet]
+		public ActionResult Detail(int id)
+		{
+			var matchedCar = _carService.GetCar(id);
+
+			return View(matchedCar);
+		}
+
+		
+		[HttpPost]
+		public ActionResult Detail(CarViewModel postData)
+		{
+			if (ModelState.IsValid)
+			{
+				return RedirectToAction("Enquire", new { carID = postData.CarID });
+			}
+			else
+			{
+				return View(postData);
+			}
+		}
+
+		public ActionResult Enquire(int carID)
 		{
 			var matchedCar = _carService.GetCar(carID);
 

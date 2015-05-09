@@ -7,8 +7,8 @@
     <ProjectGuid>{1086E928-B3DF-4351-A607-CE3AD7DA83F7}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>CarSales.Data</RootNamespace>
-    <AssemblyName>CarSales.Data</AssemblyName>
+    <RootNamespace>BookSales.Data</RootNamespace>
+    <AssemblyName>BookSales.Data</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>

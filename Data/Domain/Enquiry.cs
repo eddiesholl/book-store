@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CarSales.Data.Domain
+namespace BookSales.Data.Domain
 {
 	/// <summary>
 	/// Simple storage of enquiries from users
@@ -13,13 +13,13 @@ namespace CarSales.Data.Domain
 	{
 		public string Name { get; private set; }
 		public string Email { get; private set; }
-		public Int64 CarID { get; private set; }
+		public Int64 BookID { get; private set; }
 
-		public Enquiry(string name, string email, Int64 carID)
+		public Enquiry(string name, string email, Int64 bookID)
 		{
 			this.Name = name;
 			this.Email = email;
-			this.CarID = carID;
+			this.BookID = bookID;
 		}
 	}
 }

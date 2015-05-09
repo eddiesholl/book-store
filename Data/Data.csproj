@@ -41,12 +41,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Domain\Car.cs" />
+    <Compile Include="Domain\Book.cs" />
     <Compile Include="Domain\Enquiry.cs" />
     <Compile Include="Domain\Price.cs" />
     <Compile Include="Domain\SampleDataGenerator.cs" />
-    <Compile Include="Models\CarListModel.cs" />
-    <Compile Include="Models\CarViewModel.cs" />
+    <Compile Include="Models\BookListModel.cs" />
+    <Compile Include="Models\BookViewModel.cs" />
     <Compile Include="Models\EnquiryListModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

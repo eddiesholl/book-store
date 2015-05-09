@@ -8,10 +8,10 @@ using System.Web.Security;
 using DotNetOpenAuth.AspNet;
 using Microsoft.Web.WebPages.OAuth;
 using WebMatrix.WebData;
-using car_sales.Filters;
-using car_sales.Models;
+using BookSales.Filters;
+using BookSales.Models;
 
-namespace car_sales.Controllers
+namespace BookSales.Controllers
 {
 	[Authorize]
 	[InitializeSimpleMembership]

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CarSales.Data.Domain
+namespace BookSales.Data.Domain
 {
 	public enum PriceType
 	{
@@ -14,7 +14,7 @@ namespace CarSales.Data.Domain
 	}
 
 	/// <summary>
-	/// Wrapper class for modelling the different pricing models available on a car
+	/// Wrapper class for modelling the different pricing models available on a book
 	/// </summary>
 	public class Price
 	{

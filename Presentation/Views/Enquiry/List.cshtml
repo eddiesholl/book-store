@@ -1,4 +1,4 @@
-﻿@model List<CarSales.Data.Models.EnquiryListModel>
+﻿@model List<BookSales.Data.Models.EnquiryListModel>
 
 @{
     ViewBag.Title = "List";
@@ -7,13 +7,13 @@
 <h2>All enquiries</h2>
 
 <table>
-	<tr><td>Name</td><td>Email</td><td>CarID</td></tr>
+	<tr><td>Name</td><td>Email</td><td>BookID</td></tr>
 	@foreach (var item in Model)
 	{
 		<tr>
 			<td>@item.Name</td>
 			<td>@item.Email</td>
-			<td>@Html.ActionLink(@item.CarID.ToString(), "Detail", "Cars", new { carID = item.CarID }, null)</td>
+			<td>@Html.ActionLink(@item.BookID.ToString(), "Detail", "Books", new { bookID = item.BookID }, null)</td>
 		</tr>
 	}
 </table>

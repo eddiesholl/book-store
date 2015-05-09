@@ -3,9 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Microsoft.Web.WebPages.OAuth;
-using car_sales.Models;
 
-namespace CarSales.Presentation
+namespace BookSales.Presentation
 {
 	public static class AuthConfig
 	{

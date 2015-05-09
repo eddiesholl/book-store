@@ -1,4 +1,4 @@
-﻿@model CarSales.Data.Models.CarViewModel
+﻿@model BookSales.Data.Models.BookViewModel
 
 @{
 	Layout = "~/Views/Shared/_Layout.cshtml";
@@ -13,7 +13,7 @@
 </head>
 <body>
     <div>
-        Thank you for your enquiry about the @Html.ActionLink(@Model.Make + " " + @Model.Model, "Detail", new { carID = @Model.CarID }).
+        Thank you for your enquiry about @Html.ActionLink(@Model.Title + " by " + @Model.Author, "Detail", new { bookID = @Model.BookID }).
 	
 		The request has been forwarded to the seller.
     </div>

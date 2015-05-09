@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CarSales.Logic.Services
+namespace BookSales.Logic.Services
 {
 	/// <summary>
 	/// Marker interface useful for auto registration of services etc

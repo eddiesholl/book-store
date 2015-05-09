@@ -1,16 +1,16 @@
-﻿using CarSales.Logic.Services;
+﻿using BookSales.Logic.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace CarSales.Presentation.Controllers
+namespace BookSales.Presentation.Controllers
 {
 	public class EnquiryController : Controller
 	{
 		IEnquiryService _enquiryService;
-		public EnquiryController(ICarService carService, IEnquiryService enquiryService)
+		public EnquiryController(IBookService carService, IEnquiryService enquiryService)
 		{
 			_enquiryService = enquiryService;
 		}

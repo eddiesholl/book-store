@@ -1,6 +1,6 @@
 ﻿@{
 	Layout = "~/Views/Shared/_Layout.cshtml";
-	@model CarSales.Data.Models.CarViewModel
+	@model BookSales.Data.Models.BookViewModel
 }
 
 <!DOCTYPE html>
@@ -16,8 +16,8 @@
 
 	<table>
 		
-		@DisplayProperty(@Html.LabelFor(m => m.Make), @Html.DisplayFor(m => m.Make))
-		@DisplayProperty(@Html.LabelFor(m => m.Model), @Html.DisplayFor(m => m.Model))
+		@DisplayProperty(@Html.LabelFor(m => m.Title), @Html.DisplayFor(m => m.Title))
+		@DisplayProperty(@Html.LabelFor(m => m.Author), @Html.DisplayFor(m => m.Author))
 
 		@DisplayProperty(@Html.Label("Price"), @GetDisplayPrice(@Model.PriceType, @Model.PriceAmount))
 		@DisplayProperty(@Html.LabelFor(m => m.Year), @Html.DisplayFor(m => m.Year))
@@ -25,10 +25,9 @@
 		@DisplayProperty(@Html.LabelFor(m => m.Email), @Html.DisplayFor(m => m.Email))
 
 		@DisplayProperty(@Html.LabelFor(m => m.ListingType), @Html.DisplayFor(m => m.ListingType))
-		@if (@Model.ListingType == CarSales.Data.Domain.ListingType.Dealer)
+		@if (@Model.ListingType == BookSales.Data.Domain.ListingType.Dealer)
 		{
 			@DisplayProperty(@Html.LabelFor(m => m.ABN), @Html.DisplayFor(m => m.ABN))
-
 		}
   else
   {
@@ -41,22 +40,22 @@
 
 	<br/><br/>
 
-	@using (Html.BeginForm("Detail", "Cars", FormMethod.Post))
+	@using (Html.BeginForm("Detail", "Books", FormMethod.Post))
 	{
-		@Html.HiddenFor(m => m.CarID)
-		@Html.HiddenFor(m => m.Make)
-		@Html.HiddenFor(m => m.Model)
+		@Html.HiddenFor(m => m.BookID)
+		@Html.HiddenFor(m => m.Title)
+		@Html.HiddenFor(m => m.Author)
 		@Html.HiddenFor(m => m.PriceAmount)
 		@Html.HiddenFor(m => m.PriceType)
 		@Html.HiddenFor(m => m.Year)
 		@Html.HiddenFor(m => m.Email)
-	@Html.HiddenFor(m => m.Comments)
-	@Html.HiddenFor(m => m.ListingType)
-	@Html.HiddenFor(m => m.ContactName)
-	@Html.HiddenFor(m => m.Phone)
+		@Html.HiddenFor(m => m.Comments)
+		@Html.HiddenFor(m => m.ListingType)
+		@Html.HiddenFor(m => m.ContactName)
+		@Html.HiddenFor(m => m.Phone)
 		@Html.HiddenFor(m => m.ABN)
 		
-		@Html.Label("Yes I would like to buy this car!")
+		@Html.Label("Yes I would like to buy this book!")
 			
 		@Html.ValidationSummary()
 		 
@@ -65,9 +64,8 @@
 		 	@DisplayProperty(@Html.DisplayNameFor(m => m.EnquireEmail), @Html.EditorFor(m => m.EnquireEmail))
 		</table>
 
-	<input type="submit" />
+		<input type="submit" />
 	}
-	
 	
 
 </body>
@@ -84,24 +82,23 @@
 
 @functions
 {
-	MvcHtmlString GetDisplayPrice(CarSales.Data.Domain.PriceType priceType, decimal? amount)
+	MvcHtmlString GetDisplayPrice(BookSales.Data.Domain.PriceType priceType, decimal? amount)
 	{
 		string result = string.Empty;
 
 
 		switch (priceType)
 		{
-			case CarSales.Data.Domain.PriceType.DAP:
-				result = string.Format("${0} (Drive away price)", amount);
+			case BookSales.Data.Domain.PriceType.DAP:
+				result = string.Format("${0} (Take away price)", amount);
 				break;
-			case CarSales.Data.Domain.PriceType.EGC:
-				result = string.Format("${0} (Excluding government charges)", amount);
+			case BookSales.Data.Domain.PriceType.EGC:
+				result = string.Format("${0} (Excluding charges)", amount);
 				break;
-			case CarSales.Data.Domain.PriceType.POA:
+			case BookSales.Data.Domain.PriceType.POA:
 				result = "Price available on request";
 				break;
 		}
-
 
 		return new MvcHtmlString(result);
 	}

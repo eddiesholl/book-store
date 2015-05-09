@@ -6,7 +6,7 @@ using System.Data.Entity;
 using System.Globalization;
 using System.Web.Security;
 
-namespace car_sales.Models
+namespace BookSales.Models
 {
 	public class UsersContext : DbContext
 	{

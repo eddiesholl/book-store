@@ -1,17 +1,17 @@
-﻿using CarSales.Data.Domain;
+﻿using BookSales.Data.Domain;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CarSales.Data.Models
+namespace BookSales.Data.Models
 {
-	public class CarListModel
+	public class BookListModel
 	{
-		public Int64 CarID { get; set; }
-		public string Make { get; set; }
-		public string Model { get; set; }
+		public Int64 BookID { get; set; }
+		public string Author { get; set; }
+		public string Title { get; set; }
 		public int Year { get; set; }
 		public Price Price { get; set; }
 		public string Email { get; set; }

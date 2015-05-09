@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CarSales.Data.Domain
+namespace BookSales.Data.Domain
 {
 	public class SampleDataGenerator
 	{
@@ -26,7 +26,7 @@ namespace CarSales.Data.Domain
 
 		public static Price GetRandomPrice()
 		{
-			decimal price = 15000 + _rnd.Next(10000);
+			decimal price = 5 + _rnd.Next(100);
 			int typeGen = _rnd.Next(0, 2);
 			PriceType randomPriceType = (PriceType)typeGen;
 
@@ -37,7 +37,7 @@ namespace CarSales.Data.Domain
 
 		public static int GetRandomYear()
 		{
-			return _rnd.Next(1995, 2015);
+			return _rnd.Next(1895, 2015);
 		}
 	}
 }

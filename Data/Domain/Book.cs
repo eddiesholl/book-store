@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CarSales.Data.Domain
+namespace BookSales.Data.Domain
 {
 	public enum ListingType
 	{
@@ -12,11 +12,11 @@ namespace CarSales.Data.Domain
 		Dealer
 	}
 
-	public class Car
+	public class Book
 	{
-		public Int64 CarID { get; private set; }
-		public string Make { get; private set; }
-		public string Model { get; private set; }
+		public Int64 BookID { get; private set; }
+		public string Author { get; private set; }
+		public string Title { get; private set; }
 		public int Year { get; private set; }
 		public Price Price { get; private set; }
 		public string Email { get; private set; }
@@ -27,16 +27,16 @@ namespace CarSales.Data.Domain
 		public string Comments { get; private set; }
 
 
-		public Car(
-			int carID,
-			string make, string model,
+		public Book(
+			int bookID,
+			string author, string title,
 			int year, Price price, string email,
 			ListingType listingType, string abn, string contactName, string phone,
 			string comments = "")
 		{
-			this.CarID = carID;
-			this.Make = make;
-			this.Model = model;
+			this.BookID = bookID;
+			this.Author = author;
+			this.Title = title;
 			this.Year = year;
 			this.Price = price;
 			this.Email = email;

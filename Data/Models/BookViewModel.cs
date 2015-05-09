@@ -6,16 +6,16 @@ using System.Threading.Tasks;
 using System.Web.Mvc;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel;
-using CarSales.Data.Domain;
+using BookSales.Data.Domain;
 
-namespace CarSales.Data.Models
+namespace BookSales.Data.Models
 {
-	public class CarViewModel
+	public class BookViewModel
 	{
 		[HiddenInput(DisplayValue=false)]
-		public Int64 CarID { get; set; }
-		public string Make { get; set; }
-		public string Model { get; set; }
+		public Int64 BookID { get; set; }
+		public string Author { get; set; }
+		public string Title { get; set; }
 		public int Year { get; set; }
 		public decimal? PriceAmount { get; set; }
 		public PriceType PriceType { get; set; }
@@ -28,7 +28,7 @@ namespace CarSales.Data.Models
 
 		public string Comments { get; set; }
 
-		[Required(ErrorMessage="Please include your name.",AllowEmptyStrings=false)]
+		[Required(ErrorMessage="Please include your name.", AllowEmptyStrings=false)]
 		[DisplayName("Name")]
 		public string EnquireName { get; set; }
 		[Required(ErrorMessage = "Please include a valid email address.")]

@@ -1,7 +1,7 @@
 ﻿using System.Web;
 using System.Web.Optimization;
 
-namespace CarSales.Presentation
+namespace BookSales.Presentation
 {
 	public class BundleConfig
 	{

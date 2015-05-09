@@ -11,6 +11,6 @@ namespace BookSales.Logic.Services
 	public interface IBookService : IService
 	{
 		IEnumerable<BookListModel> GetAllBooks();
-		BookViewModel GetBook(int bookID);
+		BookViewModel GetBook(Int64 bookID);
 	}
 }

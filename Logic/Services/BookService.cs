@@ -47,7 +47,7 @@ namespace BookSales.Logic.Services
 			return AllStock.Select(c => ConvertToListModel(c));
 		}
 
-		public BookViewModel GetBook(int bookID)
+		public BookViewModel GetBook(Int64 bookID)
 		{
 			BookViewModel result = null;
 
